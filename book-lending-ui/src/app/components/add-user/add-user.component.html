@@ -1,0 +1,6 @@
+<h2>Add New User</h2>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label>Username: <input formControlName="username" /></label><br>
+  <label>Email: <input formControlName="email" /></label><br>
+  <button type="submit" [disabled]="userForm.invalid">Add User</button>
+</form>

@@ -1,0 +1,27 @@
+<h2>Book List</h2>
+
+<label for="userSelect">Select User:</label>
+<select id="userSelect" [(ngModel)]="selectedUserId">
+  <option *ngFor="let user of users" [value]="user.id">
+    {{ user.username }}
+  </option>
+</select>
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th><th>Author</th><th>Status</th><th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books">
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.available ? 'Available' : 'Borrowed by ' + book.borrowedByUsername }}</td>
+    <td>
+      <button *ngIf="book.available" (click)="reserve(book)">Reserve</button>
+      <button *ngIf="!book.available" (click)="return(book)">Return</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
