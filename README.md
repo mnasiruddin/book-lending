@@ -1,6 +1,31 @@
 # 📚 Book Lending Application
 
-A full-stack web application for managing book lending in a library or classroom setting. Users can view available books, reserve them, and return them. Admins can view who borrowed which book and manage users and inventory.
+A full-stack web application for managing book lending in a library or classroom setting. Admins can view which books have been borrowed and manage users and inventory.
+
+## ✅ Functional Requirements
+
+| Requirement         | Description                                     | API's Supporting them |
+|---------------------|-------------------------------------------------|----------------|
+| 📚 List all books   | Users can see available and borrowed books      | `GET /api/books`, Angular `BookListComponent` |
+| 🧍 List all users   | Admin can view registered users                 | `GET /api/users`, Angular `UserListComponent` |
+| 📝 Add new user     | Admin can create new users                      | `POST /api/users`, Angular `AddUserComponent` |
+| ✅ Reserve a book   | Users can reserve available books               | `POST /api/books/{id}/reserve` with `userId` |
+| 🔁 Return a book    | Users can return borrowed books                 | `POST /api/books/{id}/return` |
+| 👤 Borrower name    | Show who borrowed a book                        | Backend lookup + `borrowedByName` in response |
+| 🧪 Seed data        | Demo data for users and books                   | `schema.sql`, `data.sql` |
+
+---
+
+## 🚀 Non-Functional Requirements
+
+| Category         | Requirement                     | How to Achieve |
+|------------------|----------------------------------|----------------|
+| 📈 Performance   | Fast API/UX                     | In-memory cache, async |
+| ⚖️ Scalability   | Handle 1000s of users           | Stateless APIs + DB indexing |
+| ⏱ Availability  | Always online                   | via health checks |
+| 📦 Portability   | Run locally or in cloud         | can be easily run in Docker, modular services |
+| 📜 Documentation | Clear usage/API info            | `README.md`, Postman, Swagger |
+| 🔍 Observability | Monitor usage/errors            | SLF4J, metrics, exception handling |
 
 ---
 
